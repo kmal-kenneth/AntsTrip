@@ -5,10 +5,13 @@
  */
 package antstrip;
 
+import java.io.IOException;
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
+import javafx.scene.layout.BorderPane;
+import javafx.scene.layout.VBox;
 import javafx.stage.Stage;
 
 /**
@@ -17,16 +20,50 @@ import javafx.stage.Stage;
  */
 public class AntsTrip extends Application {
     
+    private Stage primaryStage;
+    private BorderPane root;
+    
     @Override
     public void start(Stage stage) throws Exception {
-        Parent root = FXMLLoader.load(getClass().getResource("view/AntsTrip.fxml"));
+        this.primaryStage = stage;
+        this.primaryStage.setTitle("Ant's Trip");
+//        this.primaryStage.setMinWidth(720);
+//        this.primaryStage.setMinHeight(480);
+        this.primaryStage.setResizable(false);
+        
+        initRoot();
+        initAside();
+        initPath();
         
         Scene scene = new Scene(root);
+        scene.getStylesheets().add(AntsTrip.class.getResource("view/myTheme.css").toExternalForm());
+        scene.getStylesheets().add(AntsTrip.class.getResource("view/bootstrap3.css").toExternalForm());
         
         stage.setScene(scene);
         stage.show();
     }
 
+    private void initRoot() throws IOException {
+        FXMLLoader loader = new FXMLLoader();
+        loader.setLocation(AntsTrip.class.getResource("view/AntsTrip.fxml"));
+        root = (BorderPane) loader.load();
+    }
+    
+    private void initAside() throws IOException {
+        FXMLLoader loader = new FXMLLoader();
+        loader.setLocation(AntsTrip.class.getResource("view/Aside.fxml"));
+        VBox aside = (VBox) loader.load();
+        
+        root.setLeft(aside);
+    }
+    
+    private void initPath() throws IOException {
+        FXMLLoader loader = new FXMLLoader();
+        loader.setLocation(AntsTrip.class.getResource("view/Path.fxml"));
+        VBox path = (VBox) loader.load();
+        
+        root.setCenter(path);
+    }
     /**
      * @param args the command line arguments
      */
