@@ -1,0 +1,10 @@
+.aside {
+	-fx-background-color: rgb(43, 61, 71);
+	-fx-effect: dropshadow(gaussian, rgb(0.0, 0.0, 0.0, 0.15), 6.0, 0.7, 0.0,
+		1.5);
+	-fx-padding: 12 12 12 12;
+}
+
+.background {
+	-fx-background-color: rgb(245, 245, 245);
+}

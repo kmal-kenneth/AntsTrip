@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.*?>
+<?import java.lang.*?>
+<?import java.util.*?>
+<?import javafx.scene.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+
+<VBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="480.0" prefWidth="240.0" spacing="6.0" styleClass="aside" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1">
+   <children>
+      <Label text="Player Name" textFill="WHITE" />
+      <HBox>
+         <children>
+            <TextField promptText="Player Name" styleClass="first" />
+            <Button mnemonicParsing="false" text="Play">
+               <styleClass>
+                  <String fx:value="last" />
+                  <String fx:value="success" />
+               </styleClass>
+            </Button>
+         </children>
+      </HBox>
+      <Separator prefWidth="200.0" />
+      <Label layoutX="22.0" layoutY="22.0" text="Matrix Size" textFill="WHITE" />
+      <TextField promptText="By default 7">
+         <tooltip>
+            <Tooltip text="The matrix is square.Not less than 7. (7 * 7)" wrapText="true" />
+         </tooltip>
+      </TextField>
+      <Label layoutX="22.0" layoutY="98.0" text="Amount of sugar lumps" textFill="WHITE" />
+      <TextField layoutX="22.0" layoutY="119.0" promptText="By default 5">
+         <tooltip>
+            <Tooltip text="Not less than 5." wrapText="true" />
+         </tooltip>
+      </TextField>
+      <Label layoutX="22.0" layoutY="155.0" text="Amount of sugar lumps with wine" textFill="WHITE" />
+      <TextField layoutX="22.0" layoutY="176.0" promptText="By default 5">
+         <tooltip>
+            <Tooltip text="Not less than 5." wrapText="true" />
+         </tooltip>
+      </TextField>
+      <Label layoutX="22.0" layoutY="212.0" text="Amount of sugar lumps with poison" textFill="WHITE" />
+      <TextField layoutX="22.0" layoutY="233.0" promptText="By default 5">
+         <tooltip>
+            <Tooltip text="Not less than 5." wrapText="true" />
+         </tooltip>
+      </TextField>
+      <Separator prefWidth="200.0" />
+      <VBox alignment="CENTER_LEFT" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" prefHeight="130.0" spacing="12.0">
+         <children>
+            <Label layoutX="22.0" layoutY="269.0" text="Steps" textFill="WHITE" />
+            <TextField alignment="CENTER" editable="false" layoutX="22.0" layoutY="290.0" text="100">
+               <tooltip>
+                  <Tooltip text="Not less than 5." wrapText="true" />
+               </tooltip>
+            </TextField>
+         </children>
+      </VBox>
+   </children>
+</VBox>
