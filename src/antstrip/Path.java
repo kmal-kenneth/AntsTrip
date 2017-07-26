@@ -12,7 +12,7 @@ package antstrip;
 public class Path {
     
     //Matrix representing the map made the anthill
-    int map[][] = new int[3][3];
+    int map[][];
     //The number of steps the ant has made towards the anthill. (Will be displayed at the end of the game)
     int Steps = 0;
     
@@ -24,6 +24,8 @@ public class Path {
      * @param amountSugarLumpsPoison
      */
     public void startGame(int size, int amountSugarLumps, int amountSugarLumpsWine, int amountSugarLumpsPoison){
+        
+        map = new int[size][size];
     
     }
 

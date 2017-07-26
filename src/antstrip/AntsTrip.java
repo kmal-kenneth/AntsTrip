@@ -13,6 +13,7 @@ import javafx.scene.layout.BorderPane;
 import javafx.scene.layout.VBox;
 import javafx.stage.Stage;
 import antstrip.controller.AsideController;
+import antstrip.controller.PathController;
 
 /**
  *
@@ -67,6 +68,9 @@ public class AntsTrip extends Application {
         VBox path = (VBox) loader.load();
         
         root.setCenter(path);
+        
+        PathController pathController = loader.getController();
+        pathController.setAntsTrip(this);
     }
     /**
      * @param args the command line arguments
