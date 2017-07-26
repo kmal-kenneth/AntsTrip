@@ -18,8 +18,14 @@ public class Path {
     
     /**
      *Request the necessary data to start a new game.
+     * @param size
+     * @param amountSugarLumps
+     * @param amountSugarLumpsWine
+     * @param amountSugarLumpsPoison
      */
-    public void startGame(){}
+    public void startGame(int size, int amountSugarLumps, int amountSugarLumpsWine, int amountSugarLumpsPoison){
+    
+    }
 
     /**
      *Updates the matrix by randomly assigning the distribution of the

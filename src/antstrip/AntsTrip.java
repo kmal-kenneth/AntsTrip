@@ -8,11 +8,11 @@ package antstrip;
 import java.io.IOException;
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
-import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.layout.BorderPane;
 import javafx.scene.layout.VBox;
 import javafx.stage.Stage;
+import antstrip.controller.AsideController;
 
 /**
  *
@@ -23,12 +23,13 @@ public class AntsTrip extends Application {
     private Stage primaryStage;
     private BorderPane root;
     
+    private Path path;
+    private Ant ant;
+    
     @Override
     public void start(Stage stage) throws Exception {
         this.primaryStage = stage;
         this.primaryStage.setTitle("Ant's Trip");
-//        this.primaryStage.setMinWidth(720);
-//        this.primaryStage.setMinHeight(480);
         this.primaryStage.setResizable(false);
         
         initRoot();
@@ -55,6 +56,9 @@ public class AntsTrip extends Application {
         VBox aside = (VBox) loader.load();
         
         root.setLeft(aside);
+        
+        AsideController asideController = loader.getController();
+        asideController.setAntsTrip(this);
     }
     
     private void initPath() throws IOException {
@@ -70,5 +74,39 @@ public class AntsTrip extends Application {
     public static void main(String[] args) {
         launch(args);
     }
+
+    public Stage getPrimaryStage() {
+        return primaryStage;
+    }
+
+    public void setPrimaryStage(Stage primaryStage) {
+        this.primaryStage = primaryStage;
+    }
+
+    public BorderPane getRoot() {
+        return root;
+    }
+
+    public void setRoot(BorderPane root) {
+        this.root = root;
+    }
+
+    public Path getPath() {
+        return path;
+    }
+
+    public void setPath(Path path) {
+        this.path = path;
+    }
+
+    public Ant getAnt() {
+        return ant;
+    }
+
+    public void setAnt(Ant ant) {
+        this.ant = ant;
+    }
+    
+    
     
 }
