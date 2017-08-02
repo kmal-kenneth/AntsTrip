@@ -114,10 +114,13 @@ public class AsideController implements Initializable {
             amountSugarLumpsPoison = Integer.valueOf(amountSugarLumpsTxt.getText());
         }
         
-        path.startGame(size, amountSugarLumps, amountSugarLumpsWine, amountSugarLumpsPoison);
-        
         antsTrip.setAnt(ant);
         antsTrip.setPath(path);
+        
+        path = antsTrip.getPath();
+        ant =  antsTrip.getAnt();
+        
+        path.startGame(size, amountSugarLumps, amountSugarLumpsWine, amountSugarLumpsPoison);
     }
     
 }
