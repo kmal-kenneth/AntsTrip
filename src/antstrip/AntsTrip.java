@@ -24,6 +24,8 @@ public class AntsTrip extends Application {
     private Stage primaryStage;
     private BorderPane root;
     
+    public PathController pathController;
+        
     private Path path;
     private Ant ant;
     
@@ -32,6 +34,9 @@ public class AntsTrip extends Application {
         this.primaryStage = stage;
         this.primaryStage.setTitle("Ant's Trip");
         this.primaryStage.setResizable(false);
+        
+        path = new Path();
+        ant = new Ant();
         
         initRoot();
         initAside();
@@ -69,9 +74,11 @@ public class AntsTrip extends Application {
         
         root.setCenter(path);
         
-        PathController pathController = loader.getController();
+        pathController = loader.getController();
         pathController.setAntsTrip(this);
     }
+    
+    
     /**
      * @param args the command line arguments
      */
@@ -110,7 +117,5 @@ public class AntsTrip extends Application {
     public void setAnt(Ant ant) {
         this.ant = ant;
     }
-    
-    
     
 }

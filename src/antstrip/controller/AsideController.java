@@ -12,6 +12,7 @@ import java.net.URL;
 import java.util.ResourceBundle;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
 import javafx.scene.control.TextField;
 
@@ -42,6 +43,9 @@ public class AsideController implements Initializable {
     public void setAntsTrip(AntsTrip antsTrip) {
         
         this.antsTrip = antsTrip;
+        
+        path = antsTrip.getPath();
+        ant =  antsTrip.getAnt();
      
      }
 
@@ -80,9 +84,6 @@ public class AsideController implements Initializable {
 
     @FXML
     private void play(ActionEvent event) {
-
-        ant = new Ant();
-        path = new Path();
         
         int size = 7;
         int amountSugarLumps = 5;
@@ -107,20 +108,17 @@ public class AsideController implements Initializable {
         }
         
         if (!"".equals(amountSugarLumpsWineTxt.getText())){
-            amountSugarLumpsWine = Integer.valueOf(amountSugarLumpsTxt.getText());
+            amountSugarLumpsWine = Integer.valueOf(amountSugarLumpsWineTxt.getText());
         }
         
         if (!"".equals(amountSugarLumpsPoisonTxt.getText())){
-            amountSugarLumpsPoison = Integer.valueOf(amountSugarLumpsTxt.getText());
+            amountSugarLumpsPoison = Integer.valueOf(amountSugarLumpsPoisonTxt.getText());
         }
         
-        antsTrip.setAnt(ant);
-        antsTrip.setPath(path);
-        
-        path = antsTrip.getPath();
-        ant =  antsTrip.getAnt();
-        
         path.startGame(size, amountSugarLumps, amountSugarLumpsWine, amountSugarLumpsPoison);
+        
+        antsTrip.pathController.ModifyPathGrid();
+        
     }
     
 }

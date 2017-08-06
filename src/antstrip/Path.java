@@ -15,15 +15,19 @@ import java.util.Random;
 public class Path {
     
     //Matrix representing the map made the anthill
-    Tile map[][];
+    private Tile map[][];
     //The number of steps the ant has made towards the anthill. (Will be displayed at the end of the game)
-    int Steps = 0;
+    private int Steps;
+    
+    private int size;
     
     ArrayList<Tile> sugarLumpsList;
 
     public Path() {
         
         sugarLumpsList =  new ArrayList<>();
+        Steps = 0;
+        size = 0;
     }
 
     
@@ -36,10 +40,12 @@ public class Path {
      */
     public void startGame(int size, int amountSugarLumps, int amountSugarLumpsWine, int amountSugarLumpsPoison){
         
-        map = new Tile[size][size];
+        this.size = size;
         
-        generateBoxes(size, amountSugarLumps, amountSugarLumpsWine, amountSugarLumpsPoison);
-    
+        map = new Tile[this.size][this.size];
+        
+        generateBoxes(amountSugarLumps, amountSugarLumpsWine, amountSugarLumpsPoison);
+            
     }
 
     /**
@@ -50,7 +56,7 @@ public class Path {
      * @param amountSugarLumpsWine
      * @param amountSugarLumpsPoison
      */
-    public void generateBoxes(int size, int amountSugarLumps, int amountSugarLumpsWine, int amountSugarLumpsPoison){
+    public void generateBoxes(int amountSugarLumps, int amountSugarLumpsWine, int amountSugarLumpsPoison){
     
         //Fill the matrix with empty tiles
         for (int i = 0; i < size; i++){
@@ -67,29 +73,36 @@ public class Path {
         int amountLumpsWine = 0;
         
         //Fill list with random tiles
-        for (int i = 0; sugarLumpsList.size() <= amountLumps; i++){
+        for (int i = 0; sugarLumpsList.size() < amountLumps; i++){
             
             Random rn = new Random();
-            int x = rn.nextInt(size -1) + 1;
-            int y = rn.nextInt(size -1) + 1;
+            int x = rn.nextInt(size);
+            int y = rn.nextInt(size);
             
             if (!isSugarLumpsList(x, y)){
                 
-                if(amountLumpsPoison <= amountSugarLumpsPoison){
-                    
-                    Tile newTile = new Tile(x, y, "sugarLumpsPoison");
-                    sugarLumpsList.add(newTile); 
-                    amountLumpsPoison++;
-                } else if (amountLumpsPoison > amountSugarLumpsPoison && amountLumpsWine <= amountSugarLumpsWine){
-                    
-                    Tile newTile = new Tile(x, y, "sugarLumpsWine");
-                    sugarLumpsList.add(newTile);
-                    amountLumpsWine++;
-                } else {
-                    
-                    Tile newTile = new Tile(x, y, "sugarLump");
-                    sugarLumpsList.add(newTile);
+                if (x + y != 0) {
+                
+                    if(x + y + 2 != size * 2){
+                        
+                        if(amountLumpsPoison <= amountSugarLumpsPoison){
+                            
+                            Tile newTile = new Tile(x, y, "sugarLumpsPoison");
+                            sugarLumpsList.add(newTile);
+                            amountLumpsPoison++;
+                        } else if (amountLumpsPoison > amountSugarLumpsPoison && amountLumpsWine <= amountSugarLumpsWine){
+                            
+                            Tile newTile = new Tile(x, y, "sugarLumpsWine");
+                            sugarLumpsList.add(newTile);
+                            amountLumpsWine++;
+                        } else {
+                            
+                            Tile newTile = new Tile(x, y, "sugarLump");
+                            sugarLumpsList.add(newTile);
+                        }
+                    }
                 }
+                    
             }
         }
         
@@ -122,5 +135,30 @@ public class Path {
      *Of the boxes.
      */
     public void refreshBoxes(){}
+
+    public Tile[][] getMap() {
+        return map;
+    }
+
+    public void setMap(Tile[][] map) {
+        this.map = map;
+    }
+
+    public int getSteps() {
+        return Steps;
+    }
+
+    public void setSteps(int Steps) {
+        this.Steps = Steps;
+    }
+
+    public int getSize() {
+        return size;
+    }
+
+    public void setSize(int size) {
+        this.size = size;
+    }
+
     
 }
