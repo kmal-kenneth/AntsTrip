@@ -35,9 +35,6 @@ public class AntsTrip extends Application {
         this.primaryStage.setTitle("Ant's Trip");
         this.primaryStage.setResizable(false);
         
-        path = new Path();
-        ant = new Ant();
-        
         initRoot();
         initAside();
         initPath();
@@ -50,6 +47,10 @@ public class AntsTrip extends Application {
         stage.show();
     }
 
+    public void initPathAnt() {
+        path = new Path();
+        ant = new Ant();
+    }
     private void initRoot() throws IOException {
         FXMLLoader loader = new FXMLLoader();
         loader.setLocation(AntsTrip.class.getResource("view/AntsTrip.fxml"));

@@ -69,8 +69,8 @@ public class Path {
         
         //Calculates the size of the list
         int amountLumps = amountSugarLumps + amountSugarLumpsPoison + amountSugarLumpsWine;
-        int amountLumpsPoison = 0;
-        int amountLumpsWine = 0;
+        int amountLumpsPoison = 1;
+        int amountLumpsWine = 1;
         
         //Fill list with random tiles
         for (int i = 0; sugarLumpsList.size() < amountLumps; i++){
@@ -134,7 +134,9 @@ public class Path {
      *Depending on the route the ant is updating the content
      *Of the boxes.
      */
-    public void refreshBoxes(){}
+    public void refreshBoxes(int x, int y){
+//        if (map[x][y].getType().equals(Steps))
+    }
 
     public Tile[][] getMap() {
         return map;

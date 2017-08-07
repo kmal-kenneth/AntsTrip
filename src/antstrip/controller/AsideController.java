@@ -44,8 +44,8 @@ public class AsideController implements Initializable {
         
         this.antsTrip = antsTrip;
         
-        path = antsTrip.getPath();
-        ant =  antsTrip.getAnt();
+//        path = antsTrip.getPath();
+//        ant =  antsTrip.getAnt();
      
      }
 
@@ -84,6 +84,11 @@ public class AsideController implements Initializable {
 
     @FXML
     private void play(ActionEvent event) {
+        
+        antsTrip.initPathAnt();
+        
+        path = antsTrip.getPath();
+        ant =  antsTrip.getAnt();
         
         int size = 7;
         int amountSugarLumps = 5;
