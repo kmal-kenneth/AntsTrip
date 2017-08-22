@@ -158,14 +158,6 @@ public class Path {
             
             switch (map[newX][newY].getType()) {
 
-            case SUGARLUMP:
-                map[newX][newY].getStyleClass().remove("empty");
-                map[newX][newY].getStyleClass().add("sugar");
-                break;
-            case SUGARLUMPWINE:
-                map[newX][newY].getStyleClass().remove("empty");
-                map[newX][newY].getStyleClass().add("wine");
-                break;
             case SUGARLUMPPOISON:
                 map[newX][newY].getStyleClass().remove("empty");
                 map[newX][newY].getStyleClass().add("poison");
@@ -175,10 +167,12 @@ public class Path {
             if(state == State.SOBER && map[newX][newY].getType() == Type.SUGARLUMPPOISON){
                 
                 Tile temp1 =  map[newX][newY];
+                temp1.getStyleClass().add("travel");
                 temp2 =  map[newX][newY];
                 
                 map[newX][newY] = map[oldX][oldY];
                 map[oldX][oldY] = new Tile(oldX, oldY, Type.EMPTY);
+                map[oldX][oldY].getStyleClass().add("travel");
                 
                 if(temp != null){
             
@@ -194,6 +188,7 @@ public class Path {
                 
                 map[newX][newY] = map[oldX][oldY];
                 map[oldX][oldY] = new Tile(oldX, oldY, Type.EMPTY);
+                map[oldX][oldY].getStyleClass().add("travel");
                 
                 if(temp != null){
             

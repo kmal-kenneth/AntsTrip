@@ -72,6 +72,8 @@ public class GameController implements Initializable {
     private VBox notifyPane;
     /**
      * Initializes the controller class.
+     * @param url
+     * @param rb
      */
     @Override
     public void initialize(URL url, ResourceBundle rb) {
@@ -82,6 +84,9 @@ public class GameController implements Initializable {
         
     }    
 
+    /**
+    * Catch the key was pressed in the keyboard.
+    */
     @FXML
     private void catchKey(KeyEvent event) throws IOException {
         
@@ -93,6 +98,9 @@ public class GameController implements Initializable {
         
     }
     
+    /**
+    * Evaluate the actions on the game.
+    */
     private void evaluate() throws IOException{
     
         boolean repeat = false;
@@ -134,6 +142,9 @@ public class GameController implements Initializable {
         
     }
 
+    /**
+    * Catch the focus when the mouse clicking the grid. Grid get the focus.
+    */
     @FXML
     private void getFocus(MouseEvent event) {
         
@@ -141,6 +152,10 @@ public class GameController implements Initializable {
         
     }
     
+    /**
+    * Initialize the grid. Clear the grid of childrens, columns and rows.
+    * Add columns and rows.
+    */
     public void initGrid(){
     
         //Clear the grid
@@ -165,6 +180,9 @@ public class GameController implements Initializable {
         updateGrid();
     }
     
+    /**
+    * Update the grid, clear the childrens and add the news tiles.
+    */
     public void updateGrid(){
         
         //Clear the grid
@@ -190,9 +208,19 @@ public class GameController implements Initializable {
         name.setText(ant.getName());
         state.setText(ant.getState().getName());
         numHealth.setText(String.valueOf(ant.getHealth()));
-        health.setProgress(ant.getHealth() / 100);
         numAlcohol.setText(String.valueOf(ant.getAlcoholLevel()));
-        alcohol.setProgress(ant.getAlcoholLevel()/ 50);
+        
+        final Timeline timeline = new Timeline();
+        final KeyValue kv = new KeyValue(health.progressProperty(),(ant.getHealth() / 100));
+        final KeyFrame kf = new KeyFrame(Duration.millis(500), kv);
+        timeline.getKeyFrames().add(kf);
+        timeline.play();
+        
+        final Timeline timeline1 = new Timeline();
+        final KeyValue kv1 = new KeyValue(alcohol.progressProperty(),(ant.getAlcoholLevel()/ 50));
+        final KeyFrame kf1 = new KeyFrame(Duration.millis(500), kv1);
+        timeline1.getKeyFrames().add(kf1);
+        timeline1.play();
         
         if(!((ant.getState() != State.DEAD) && ((ant.getX() != path.getSize()-1) || (ant.getY() != path.getSize()-1)))){
         
