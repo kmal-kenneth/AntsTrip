@@ -1,0 +1,84 @@
+.aside {
+	-fx-background-color: rgb(43, 61, 71);
+	-fx-effect: dropshadow(gaussian, rgb(0.0, 0.0, 0.0, 0.15), 6.0, 0.7, 0.0,
+		1.5);
+	-fx-padding: 12 12 12 12;
+}
+
+.background {
+	-fx-background-color: rgb(245, 245, 245);
+}
+
+.path {
+    -fx-background-color: rgb(245, 245, 245);
+        -fx-border-width: 1;
+        -fx-border-color: #acacac;
+        -fx-background-image: url("/img/ground.jpg");
+        -fx-background-size: 48;
+        -fx-background-position: center center;
+
+}
+
+.ant {
+        -fx-border-width: 1;
+        -fx-border-color: #acacac;
+        -fx-background-image: url("/img/ant.png");
+        -fx-background-repeat: no-repeat;   
+        -fx-background-size: contain;
+        -fx-background-position: center center;
+}
+
+.anthill {
+        -fx-border-width: 1;
+        -fx-border-color: #acacac;
+        -fx-background-image: url("/img/antHill.png");
+        -fx-background-repeat: no-repeat;   
+        -fx-background-size: contain;
+        -fx-background-position: center center;
+}
+
+.empty {
+        -fx-border-width: 1;
+        -fx-border-color: #acacac;
+}
+
+.wine {
+        -fx-border-width: 1;
+        -fx-border-color: #acacac;
+        -fx-background-image: url("/img/sugar-cube-md-wine.png");
+        -fx-background-repeat: no-repeat;   
+        -fx-background-size: contain;
+        -fx-background-position: center center;
+}
+
+.poison {
+        -fx-border-width: 1;
+        -fx-border-color: #acacac;
+        -fx-background-image: url("/img/sugar-cube-md-poison.png");
+        -fx-background-repeat: no-repeat;   
+        -fx-background-size: contain;
+        -fx-background-position: center center;
+}
+
+.sugar { 
+        -fx-border-width: 1;
+        -fx-border-color: #acacac;
+        -fx-background-image: url("/img/sugar-cube-md.png");
+        -fx-background-repeat: no-repeat;   
+        -fx-background-size: contain;
+        -fx-background-position: center center;
+}
+
+.travel{
+    -fx-border-width: 3;
+    -fx-border-color: rgb(91, 192, 222);
+    -fx-background-color: rgba(91, 192, 222, 0.5);
+}
+
+.notify {
+    -fx-border-width: 1;
+    -fx-border-color: rgba(216, 216, 216, 1);
+    -fx-background-color: rgba(240, 240, 240, 1);
+    -fx-background-radius: 10;
+    -fx-border-radius: 10;
+}

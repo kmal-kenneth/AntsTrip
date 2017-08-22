@@ -1,0 +1,81 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.*?>
+<?import javafx.scene.text.*?>
+<?import java.lang.*?>
+<?import java.util.*?>
+<?import javafx.scene.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<BorderPane maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" minHeight="-Infinity" minWidth="-Infinity" prefHeight="480.0" prefWidth="720.0" styleClass="background" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="antstrip.controller.GameController">
+   <left>
+      <VBox prefWidth="240.0" spacing="12.0" styleClass="aside" BorderPane.alignment="CENTER">
+         <children>
+            <Label fx:id="name" alignment="CENTER" maxWidth="1.7976931348623157E308" text="Name" textFill="WHITE">
+               <font>
+                  <Font name="System Bold" size="20.0" />
+               </font>
+            </Label>
+            <Label fx:id="state" alignment="CENTER" maxWidth="1.7976931348623157E308" text="state" textFill="WHITE">
+               <font>
+                  <Font size="15.0" />
+               </font></Label>
+            <Separator prefWidth="200.0" />
+            <BorderPane>
+               <left>
+                  <Label text="Health" textFill="WHITE" BorderPane.alignment="CENTER" />
+               </left>
+               <right>
+                  <Label fx:id="numHealth" text="100" textFill="WHITE" BorderPane.alignment="CENTER" />
+               </right>
+            </BorderPane>
+            <ProgressBar fx:id="health" prefWidth="200.0" styleClass="success" />
+            <BorderPane>
+               <left>
+                  <Label text="Alcohol level" textFill="WHITE" BorderPane.alignment="CENTER" />
+               </left>
+               <right>
+                  <Label fx:id="numAlcohol" text="0" textFill="WHITE" BorderPane.alignment="CENTER" />
+               </right>
+            </BorderPane>
+            <ProgressBar fx:id="alcohol" layoutX="22.0" layoutY="135.0" prefWidth="200.0" styleClass="info" />
+            <Separator layoutX="22.0" layoutY="83.0" prefWidth="200.0" />
+            <ScrollPane fx:id="scroll" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" prefHeight="200.0" prefWidth="200.0" style="-fx-background-color: rgb(43, 61, 71);">
+               <content>
+                  <VBox fx:id="notifyPane" prefHeight="200.0" prefWidth="200.0" spacing="3.0" style="-fx-background-color: rgb(43, 61, 71);">
+                     <padding>
+                        <Insets bottom="3.0" left="3.0" right="3.0" top="3.0" />
+                     </padding></VBox>
+               </content>
+            </ScrollPane>
+            <Button fx:id="back" maxWidth="1.7976931348623157E308" mnemonicParsing="false" onAction="#back" styleClass="danger" text="Back" visible="false" />
+         </children>
+      </VBox>
+   </left>
+   <center>
+      <GridPane fx:id="grid" focusTraversable="true" gridLinesVisible="true" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" onKeyPressed="#catchKey" onMouseClicked="#getFocus" styleClass="path" BorderPane.alignment="CENTER">
+        <columnConstraints>
+            <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+            <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+            <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+          <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+            <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+            <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+          <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+        </columnConstraints>
+        <rowConstraints>
+            <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+            <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+            <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+            <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+          <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+          <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+          <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+        </rowConstraints>
+         <BorderPane.margin>
+            <Insets bottom="12.0" left="12.0" right="12.0" top="12.0" />
+         </BorderPane.margin>
+      </GridPane>
+   </center>
+</BorderPane>
