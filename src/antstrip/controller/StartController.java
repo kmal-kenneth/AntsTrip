@@ -9,9 +9,18 @@ import antstrip.Ant;
 import antstrip.AntsTrip;
 import antstrip.Path;
 import antstrip.Tile;
+import java.io.BufferedReader;
+import java.io.BufferedWriter;
+import java.io.File;
+import java.io.FileNotFoundException;
+import java.io.FileReader;
+import java.io.FileWriter;
 import java.io.IOException;
+import java.io.PrintWriter;
 import java.net.URL;
 import java.util.ResourceBundle;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
@@ -67,6 +76,13 @@ public class StartController implements Initializable {
             sugarLumpsPoison.getItems().add(i);
         }
         
+        
+        try {
+            load();
+        } catch (IOException ex) {
+            Logger.getLogger(StartController.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        
     }    
 
     @FXML
@@ -107,9 +123,38 @@ public class StartController implements Initializable {
         
         path.startGame(antsTrip.getAnt(), sizeGrid, amountSugarLumps, amountSugarLumpsWine, amountSugarLumpsPoison);
         
-        antsTrip.save();
+        save(ant.getName(), sizeGrid, amountSugarLumps, amountSugarLumpsWine, amountSugarLumpsPoison);
         
         antsTrip.initGameUI();
+    }
+    
+    public void save(String name, int size, int sugarlump, int sugarlumpwime, int sugarlumppoison) throws IOException{
+        
+        try (PrintWriter writeText = new PrintWriter("src/antstrip/Save.txt", "UTF-8")) {
+            writeText.println(name);
+            writeText.println(String.valueOf(size));
+            writeText.println(String.valueOf(sugarlump));
+            writeText.println(String.valueOf(sugarlumpwime));
+            writeText.println(String.valueOf(sugarlumppoison));
+        }
+    }
+    
+    private void load() throws FileNotFoundException, IOException{
+    
+        
+        if (new File("src/antstrip/Save.txt").exists()){
+            
+            FileReader fr = new FileReader("src/antstrip/Save.txt");
+        
+            BufferedReader br = new BufferedReader(fr);
+
+            name.setText(br.readLine());
+            size.getSelectionModel().select((Integer.parseInt(br.readLine())) -7);
+            updateComboBoxs(new ActionEvent());
+            sugarLumps.getSelectionModel().select(Integer.parseInt(br.readLine()) - 5);
+            sugarLumpsWine.getSelectionModel().select(Integer.parseInt(br.readLine()) -5);
+            sugarLumpsPoison.getSelectionModel().select(Integer.parseInt(br.readLine()) -5);
+        }
     }
     
     public void update(){

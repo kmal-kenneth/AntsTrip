@@ -75,21 +75,6 @@ public class AntsTrip extends Application {
         gameController.setPath(path);
         gameController.initGrid();
     }
-    
-    public void save() throws IOException{
-        
-        String ruta = "Save.txt";
-        File archivo = new File(ruta);
-        BufferedWriter bw;
-        if(archivo.exists()) {
-            bw = new BufferedWriter(new FileWriter(archivo));
-            bw.write("El fichero de texto ya estaba creado.");
-        } else {
-            bw = new BufferedWriter(new FileWriter(archivo));
-            bw.write("Acabo de crear el fichero de texto.");
-        }
-        bw.close();
-    }
 
     /**
      * @param args the command line arguments
