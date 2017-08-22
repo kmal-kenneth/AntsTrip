@@ -14,6 +14,7 @@ import java.io.IOException;
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Scene;
+import javafx.scene.image.Image;
 import javafx.scene.layout.BorderPane;
 import javafx.stage.Stage;
 
@@ -34,6 +35,7 @@ public class AntsTrip extends Application {
         this.primaryStage = primaryStage;
         this.primaryStage.setTitle("Ant's Trip");
         this.primaryStage.setResizable(true);
+        this.primaryStage.getIcons().add(new Image("antstrip/img/ant.png"));
         
         root = new BorderPane();
         
