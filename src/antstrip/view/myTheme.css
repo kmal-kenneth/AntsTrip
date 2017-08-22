@@ -13,7 +13,7 @@
     -fx-background-color: rgb(245, 245, 245);
         -fx-border-width: 1;
         -fx-border-color: #acacac;
-        -fx-background-image: url("/img/ground.jpg");
+        -fx-background-image: url("../img/ground.jpg");
         -fx-background-size: 48;
         -fx-background-position: center center;
 
@@ -22,7 +22,7 @@
 .ant {
         -fx-border-width: 1;
         -fx-border-color: #acacac;
-        -fx-background-image: url("/img/ant.png");
+        -fx-background-image: url("../img/ant.png");
         -fx-background-repeat: no-repeat;   
         -fx-background-size: contain;
         -fx-background-position: center center;
@@ -31,7 +31,7 @@
 .anthill {
         -fx-border-width: 1;
         -fx-border-color: #acacac;
-        -fx-background-image: url("/img/antHill.png");
+        -fx-background-image: url("../img/antHill.png");
         -fx-background-repeat: no-repeat;   
         -fx-background-size: contain;
         -fx-background-position: center center;
@@ -45,7 +45,7 @@
 .wine {
         -fx-border-width: 1;
         -fx-border-color: #acacac;
-        -fx-background-image: url("/img/sugar-cube-md-wine.png");
+        -fx-background-image: url("../img/sugar-cube-md-wine.png");
         -fx-background-repeat: no-repeat;   
         -fx-background-size: contain;
         -fx-background-position: center center;
@@ -54,7 +54,7 @@
 .poison {
         -fx-border-width: 1;
         -fx-border-color: #acacac;
-        -fx-background-image: url("/img/sugar-cube-md-poison.png");
+        -fx-background-image: url("../img/sugar-cube-md-poison.png");
         -fx-background-repeat: no-repeat;   
         -fx-background-size: contain;
         -fx-background-position: center center;
@@ -63,7 +63,7 @@
 .sugar { 
         -fx-border-width: 1;
         -fx-border-color: #acacac;
-        -fx-background-image: url("/img/sugar-cube-md.png");
+        -fx-background-image: url("../img/sugar-cube-md.png");
         -fx-background-repeat: no-repeat;   
         -fx-background-size: contain;
         -fx-background-position: center center;
